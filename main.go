@@ -82,7 +82,7 @@ func removeCreatureFromShore(shore *[]models.LivingCreature, position int) (mode
 	}
 }
 
-func run(positionOfCreatureToMove int) (bool, error) {
+func crossRiver(positionOfCreatureToMove int) (bool, error) {
 	var ok bool
 	var err error
 
@@ -98,13 +98,13 @@ func run(positionOfCreatureToMove int) (bool, error) {
 				// 4th step
 				if ok, err = verifyLivingCreaturesInShore(secondShore); ok {
 					// 5th step
-					run(0)
+					crossRiver(0)
 				} else {
 					moveCreatureFromShoreToBoat(&secondShore, 0)
 					moveCreatureFromBoatToShore(&firstShore)
 
 					// 5th step
-					run(0)
+					crossRiver(0)
 				}
 			}
 		}

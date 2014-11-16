@@ -161,14 +161,14 @@ func TestWolfSheepStraw(t *testing.T) {
 
 		Convey("And we need to move them to the other shore", func() {
 			Convey("Then we start moving the wolf first", func() {
-				ok, err := run(0)
+				ok, err := crossRiver(0)
 
 				So(ok, ShouldBeFalse)
 				So(err.Error(), ShouldEqual, "The Sheep ate the Straw!")
 			})
 
 			Convey("Then we start moving the sheep first", func() {
-				ok, err := run(1)
+				ok, err := crossRiver(1)
 
 				So(ok, ShouldBeTrue)
 				So(err, ShouldBeNil)
@@ -177,7 +177,7 @@ func TestWolfSheepStraw(t *testing.T) {
 			})
 
 			Convey("Then we start moving the straw first", func() {
-				ok, err := run(2)
+				ok, err := crossRiver(2)
 
 				So(ok, ShouldBeFalse)
 				So(err.Error(), ShouldEqual, "The Wolf ate the Sheep!")
